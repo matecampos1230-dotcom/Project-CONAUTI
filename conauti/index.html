@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CONAUTI · Tu primer perfil profesional</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: { extend: { fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','"SF Pro Text"','Inter','"Segoe UI"','Roboto','sans-serif'] } } }
+  };
+</script>
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-[#F5F5F7] font-sans text-[#1D1D1F] min-h-screen">
+<div class="orbs" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<!-- Cabecera + progreso -->
+<header class="sticky top-0 z-40 glass-bar"><div class="max-w-2xl mx-auto px-5 pt-5 pb-4">
+  <div class="flex items-center justify-between">
+    <span class="text-[15px] font-semibold tracking-tight">CONAUTI</span>
+    <span id="stepLabel" class="text-sm text-[#86868B]">Paso 1 de 5</span>
+  </div>
+  <div class="mt-4 h-1 rounded-full bg-gray-200/80 overflow-hidden" role="progressbar" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1" id="bar">
+    <div id="barFill" class="h-full bg-[#1D1D1F] rounded-full transition-all duration-500 ease-out" style="width:20%"></div>
+  </div>
+</div></header>
+
+<main class="max-w-2xl mx-auto px-5 py-8 sm:py-12">
+
+  <!-- ============ PANTALLA 1 · ONBOARDING ============ -->
+  <section id="screen1" aria-labelledby="t1">
+    <h1 id="t1" class="enter text-3xl sm:text-[40px] sm:leading-[1.1] font-semibold tracking-tight">Empecemos por conocerte.</h1>
+    <p class="enter enter-d1 mt-3 text-[17px] text-[#86868B] max-w-lg">No necesitas experiencia previa. Tus proyectos y estudios ya cuentan. Solo dinos dónde estás hoy.</p>
+
+    <fieldset class="enter enter-d2 mt-9">
+      <legend class="text-sm font-medium mb-3">¿Cuál es tu situación actual?</legend>
+      <div class="grid gap-3" id="situations">
+        <label class="opt block cursor-pointer">
+          <input type="radio" name="situacion" value="estudiante" class="sr-only">
+          <div class="opt-body flex items-start gap-4 glass rounded-2xl p-5 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.07)]">
+            <span class="dot mt-1 shrink-0 w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200"></span>
+            <span><span class="block font-semibold tracking-tight">Soy estudiante</span><span class="block text-sm text-[#86868B] mt-0.5">Sigo estudiando y quiero empezar a prepararme.</span></span>
+          </div>
+        </label>
+        <label class="opt block cursor-pointer">
+          <input type="radio" name="situacion" value="egresado" class="sr-only">
+          <div class="opt-body flex items-start gap-4 glass rounded-2xl p-5 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.07)]">
+            <span class="dot mt-1 shrink-0 w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200"></span>
+            <span><span class="block font-semibold tracking-tight">Soy recién egresado</span><span class="block text-sm text-[#86868B] mt-0.5">Terminé mis estudios y busco mi primer empleo.</span></span>
+          </div>
+        </label>
+        <label class="opt block cursor-pointer">
+          <input type="radio" name="situacion" value="practicas" class="sr-only">
+          <div class="opt-body flex items-start gap-4 glass rounded-2xl p-5 transition-all duration-300 ease-out hover:-translate-y-0.5 hover:shadow-[0_8px_28px_rgba(0,0,0,0.07)]">
+            <span class="dot mt-1 shrink-0 w-5 h-5 rounded-full border border-gray-300 flex items-center justify-center transition-all duration-200"></span>
+            <span><span class="block font-semibold tracking-tight">Busco prácticas</span><span class="block text-sm text-[#86868B] mt-0.5">Necesito una práctica preprofesional o pasantía.</span></span>
+          </div>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="enter enter-d3 mt-8">
+      <label for="puesto" class="text-sm font-medium">¿A qué puesto quieres postular?</label>
+      <input id="puesto" type="text" autocomplete="off" placeholder="Ej. Analista de datos junior"
+        class="field mt-3 w-full rounded-xl px-4 py-3.5 text-[15px] placeholder:text-[#86868B]">
+      <p class="mt-2 text-sm text-[#86868B]">Si aún no lo sabes con certeza, escribe el área que más te interesa.</p>
+    </div>
+
+    <div class="mt-10 flex justify-end">
+      <button id="next1" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98] w-full sm:w-auto" disabled>Continuar</button>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 2 · RECOLECCIÓN GUIADA ============ -->
+  <section id="screen2" class="hidden" aria-labelledby="t2">
+    <h1 id="t2" class="text-3xl sm:text-[40px] sm:leading-[1.1] font-semibold tracking-tight">Cuéntanos lo que ya has hecho.</h1>
+    <p class="mt-3 text-[17px] text-[#86868B] max-w-lg">Un trabajo en equipo, una tesis o un proyecto de curso es experiencia real. Escríbelo con tus palabras y nosotros lo estructuramos.</p>
+
+    <!-- Formación -->
+    <div class="mt-9 glass rounded-2xl p-5 sm:p-7">
+      <h2 class="font-semibold tracking-tight text-lg">Formación</h2>
+      <div class="mt-5 grid gap-4 sm:grid-cols-2">
+        <div class="sm:col-span-2">
+          <label for="institucion" class="text-sm font-medium">Institución</label>
+          <input id="institucion" type="text" placeholder="Ej. Universidad Nacional de Ingeniería" class="field mt-2 w-full rounded-xl px-4 py-3 text-[15px] placeholder:text-[#86868B]">
+        </div>
+        <div>
+          <label for="carrera" class="text-sm font-medium">Carrera</label>
+          <input id="carrera" type="text" placeholder="Ej. Ingeniería de Sistemas" class="field mt-2 w-full rounded-xl px-4 py-3 text-[15px] placeholder:text-[#86868B]">
+        </div>
+        <div>
+          <label for="periodo" class="text-sm font-medium">Periodo</label>
+          <input id="periodo" type="text" placeholder="Ej. 2022 – 2026" class="field mt-2 w-full rounded-xl px-4 py-3 text-[15px] placeholder:text-[#86868B]">
+        </div>
+      </div>
+    </div>
+
+    <!-- Proyectos -->
+    <div class="mt-6">
+      <div class="flex items-end justify-between gap-4">
+        <div>
+          <h2 class="font-semibold tracking-tight text-lg">Proyectos académicos</h2>
+          <p class="text-sm text-[#86868B] mt-1">Añade de 1 a 3. Lo importante es qué hiciste tú.</p>
+        </div>
+        <button id="example" type="button" aria-expanded="false" aria-controls="examplePanel" class="text-sm text-[#1D1D1F] underline underline-offset-4 decoration-gray-300 hover:decoration-[#1D1D1F] transition-colors duration-200 shrink-0">Ver un ejemplo</button>
+      </div>
+      <div id="examplePanel" class="hidden mt-4 glass rounded-2xl p-5 sm:p-6">
+        <div class="flex items-center justify-between"><span class="text-sm font-medium text-[#86868B]">Ejemplo de referencia</span><button id="closeExample" type="button" class="text-sm text-[#86868B] hover:text-[#1D1D1F] transition-colors duration-200">Cerrar</button></div>
+        <p id="exTitle" class="fade-t mt-3 font-medium"></p>
+        <p id="exBody" class="fade-t mt-1 text-[15px] text-[#86868B] leading-relaxed"></p>
+        <div class="mt-4 flex flex-wrap gap-2"><button id="useExample" type="button" class="text-sm font-medium bg-[#1D1D1F] hover:bg-black text-white rounded-lg px-4 py-2.5 transition-all duration-200">Usar como base</button><button id="nextExample" type="button" class="text-sm font-medium bg-white/70 hover:bg-white border border-gray-200/70 rounded-lg px-4 py-2.5 transition-all duration-200">Otro ejemplo</button></div>
+      </div>
+      <div id="projects" class="mt-4 grid gap-4"></div>
+      <button id="addProject" type="button" class="mt-4 w-full border border-dashed border-gray-300 hover:border-gray-400 hover:bg-white rounded-2xl py-4 text-sm font-medium text-[#1D1D1F] transition-all duration-300 ease-out">Añadir otro proyecto</button>
+    </div>
+
+    <!-- Nota de orientación -->
+    <div id="tipBox" class="mt-6 glass rounded-2xl overflow-hidden relative" aria-live="off">
+      <div class="flex gap-3 p-4 pb-5 text-sm text-[#86868B]">
+        <svg class="w-5 h-5 shrink-0 text-[#1D1D1F]" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <p id="tipText" class="fade-t"></p>
+      </div>
+      <div class="absolute bottom-0 inset-x-0 h-[2px] bg-black/5"><div id="tipBar" class="h-full w-0 bg-[#1D1D1F]/40"></div></div>
+    </div>
+
+    <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+      <button id="back2" class="btn text-[#1D1D1F] hover:bg-gray-200/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out">Atrás</button>
+      <button id="next2" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:translate-y-0 active:scale-[.98]" disabled>Generar mi CV</button>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 3 · VISTA PREVIA DEL CV ============ -->
+  <section id="screen3" class="hidden" aria-labelledby="t3">
+    <h1 id="t3" class="text-3xl sm:text-[40px] sm:leading-[1.1] font-semibold tracking-tight">Tu CV, listo para revisar.</h1>
+    <p class="mt-3 text-[17px] text-[#86868B] max-w-lg">Convertimos tus proyectos en viñetas de impacto. Haz clic en tu nombre para editarlo.</p>
+    <article id="cv" class="mt-9 glass rounded-2xl p-6 sm:p-10">
+      <h2 id="cvName" contenteditable="true" spellcheck="false" class="text-2xl font-semibold tracking-tight outline-none rounded focus:bg-[#F0F0F2] transition-colors px-1 -mx-1">Tu nombre completo</h2>
+      <p id="cvRole" class="text-[#86868B] mt-1"></p>
+      <hr class="my-6 border-gray-200/70">
+      <h3 class="text-sm font-semibold">Perfil</h3>
+      <p id="cvSummary" class="mt-2 text-[15px] leading-relaxed text-[#1D1D1F]"></p>
+      <h3 class="text-sm font-semibold mt-6">Formación</h3>
+      <p id="cvEdu" class="mt-2 text-[15px]"></p>
+      <h3 class="text-sm font-semibold mt-6">Proyectos y experiencia</h3>
+      <div id="cvProjects" class="mt-2 grid gap-5"></div>
+    </article>
+    <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+      <button id="back3" class="btn text-[#1D1D1F] hover:bg-gray-200/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out">Editar datos</button>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <button id="pdf" class="btn glass hover:bg-white/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5">Exportar a PDF</button>
+        <button id="next3" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-[.98]">Practicar entrevista</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 4 · SIMULADOR DE ENTREVISTA ============ -->
+  <section id="screen4" class="hidden" aria-labelledby="t4">
+    <div class="flex items-start justify-between gap-4">
+      <h1 id="t4" class="text-3xl sm:text-[40px] sm:leading-[1.1] font-semibold tracking-tight">Simulador de entrevista.</h1>
+      <div id="timerBox" class="shrink-0 glass rounded-xl px-4 py-2 text-center">
+        <div id="timer" class="text-xl font-semibold tabular-nums tracking-tight">2:00</div>
+        <div class="text-xs text-[#86868B]">restante</div>
+      </div>
+    </div>
+    <div class="mt-5 flex items-center gap-3"><span id="qCount" class="text-sm font-medium"></span><div id="qDots" class="flex items-center gap-1.5" aria-hidden="true"></div></div>
+
+    <div id="qArea">
+      <div id="qCard" class="mt-6 glass rounded-2xl p-6 sm:p-8">
+        <span id="qTag" class="inline-block text-xs font-medium text-[#86868B] bg-white/60 border border-white/70 rounded-lg px-2.5 py-1"></span>
+        <p id="qText" class="mt-4 text-xl sm:text-2xl font-semibold tracking-tight leading-snug"></p>
+        <p class="mt-3 text-sm text-[#86868B]">Tip: cuenta la situación, tu tarea, lo que hiciste y el resultado.</p>
+      </div>
+      <div class="mt-5">
+        <label for="answer" class="text-sm font-medium">Tu respuesta</label>
+        <textarea id="answer" rows="7" placeholder="Escribe o usa el micrófono para dictar tu respuesta…" class="field mt-2 w-full rounded-xl px-4 py-3.5 text-[15px] placeholder:text-[#86868B] resize-none"></textarea>
+        <div class="mt-2 flex items-center justify-between text-sm text-[#86868B]">
+          <button id="mic" type="button" class="flex items-center gap-2 rounded-lg px-3 py-2 hover:bg-white/60 text-[#1D1D1F] transition-all duration-200">
+            <span id="micDot" class="w-2.5 h-2.5 rounded-full bg-gray-400 transition-colors duration-300"></span><span id="micLabel">Responder con voz</span>
+          </button>
+          <span id="wc" class="tabular-nums">0 palabras</span>
+        </div>
+      </div>
+      <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+        <button id="back4" class="btn text-[#1D1D1F] hover:bg-white/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out">Volver al CV</button>
+        <button id="next4" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-[.98]" disabled>Siguiente pregunta</button>
+      </div>
+    </div>
+
+    <div id="morePanel" class="hidden mt-8 glass rounded-2xl p-6 sm:p-10">
+      <p id="moreCount" class="text-sm font-medium text-[#86868B]"></p>
+      <h2 class="mt-2 text-2xl sm:text-3xl font-semibold tracking-tight">¿Quieres practicar con más preguntas?</h2>
+      <p class="mt-3 text-[#86868B] max-w-lg">Cuantas más preguntas practiques, más natural te sentirás en tu entrevista real. Repetir te ayuda a ordenar tus ideas, bajar los nervios y descubrir qué historias de tus proyectos funcionan mejor.</p>
+      <div class="mt-7 flex flex-col sm:flex-row gap-3">
+        <button id="moreYes" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-[.98]"></button>
+        <button id="moreNo" class="btn glass hover:bg-white/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5">Ver mi feedback</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PANTALLA 5 · FEEDBACK ============ -->
+  <section id="screen5" class="hidden" aria-labelledby="t5">
+    <h1 id="t5" class="text-3xl sm:text-[40px] sm:leading-[1.1] font-semibold tracking-tight">Así te fue.</h1>
+    <div class="mt-8 glass rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6">
+      <div class="relative w-36 h-36 shrink-0">
+        <svg viewBox="0 0 120 120" class="w-full h-full -rotate-90" aria-hidden="true">
+          <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(0,0,0,.07)" stroke-width="8"/>
+          <circle id="ring" cx="60" cy="60" r="52" fill="none" stroke="#1D1D1F" stroke-width="8" stroke-linecap="round" stroke-dasharray="326.7" stroke-dashoffset="326.7" style="transition:stroke-dashoffset 1.2s cubic-bezier(.22,.61,.36,1)"/>
+        </svg>
+        <div class="absolute inset-0 flex flex-col items-center justify-center"><span id="score" class="text-4xl font-semibold tracking-tight tabular-nums">0</span><span class="text-xs text-[#86868B]">de 100</span></div>
+      </div>
+      <div class="text-center sm:text-left"><p id="verdict" class="text-xl font-semibold tracking-tight"></p><p id="verdictSub" class="mt-1 text-[#86868B]"></p></div>
+    </div>
+    <div class="mt-5 glass rounded-2xl p-6"><h2 class="font-semibold tracking-tight">Resultado por pregunta</h2><ul id="fQs" class="mt-4 grid gap-4"></ul></div>
+    <div class="mt-5 grid gap-5 sm:grid-cols-2">
+      <div class="glass rounded-2xl p-6"><h2 class="font-semibold tracking-tight">Fortalezas</h2><ul id="fStr" class="mt-3 grid gap-2.5 text-[15px]"></ul></div>
+      <div class="glass rounded-2xl p-6"><h2 class="font-semibold tracking-tight">Áreas de mejora</h2><ul id="fImp" class="mt-3 grid gap-2.5 text-[15px]"></ul></div>
+    </div>
+    <div class="mt-5 glass rounded-2xl p-6"><h2 class="font-semibold tracking-tight">Consejos de comunicación</h2><ul id="fTips" class="mt-3 grid gap-2.5 text-[15px]"></ul></div>
+    <div class="mt-10 flex flex-col-reverse sm:flex-row sm:justify-between gap-3">
+      <button id="restart" class="btn text-[#1D1D1F] hover:bg-white/60 rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out">Volver al inicio</button>
+      <button id="again" class="btn bg-[#1D1D1F] hover:bg-black text-white rounded-xl px-6 py-3.5 text-[15px] font-medium transition-all duration-300 ease-out hover:-translate-y-0.5 active:scale-[.98]">Practicar más preguntas</button>
+    </div>
+  </section>
+</main>
+
+<!-- Plantilla de proyecto -->
+<template id="projectTpl">
+  <article class="enter glass rounded-2xl p-5 sm:p-7 transition-shadow duration-300 hover:shadow-[0_8px_28px_rgba(0,0,0,0.07)]">
+    <div class="flex items-center justify-between">
+      <span class="p-num text-sm font-medium text-[#86868B]">Proyecto</span>
+      <button type="button" class="p-del text-sm text-[#86868B] hover:text-[#1D1D1F] transition-colors duration-200">Quitar</button>
+    </div>
+    <label class="text-sm font-medium block mt-4">Nombre del proyecto
+      <input type="text" data-k="titulo" placeholder="Ej. Sistema de reservas para la biblioteca" class="field mt-2 w-full rounded-xl px-4 py-3 text-[15px] font-normal placeholder:text-[#86868B]">
+    </label>
+    <label class="text-sm font-medium block mt-4">¿Qué hiciste y qué lograste?
+      <textarea data-k="detalle" rows="4" placeholder="Ej. Lideré un equipo de 4 personas. Diseñé la base de datos y programé el módulo de reservas. Lo usaron 120 estudiantes en el piloto." class="field mt-2 w-full rounded-xl px-4 py-3 text-[15px] font-normal placeholder:text-[#86868B] resize-none"></textarea>
+    </label>
+    <div class="mt-2 flex justify-between text-xs text-[#86868B]">
+      <span>Incluye tu rol, qué herramientas usaste y un resultado.</span>
+      <span class="p-count tabular-nums">0 / 20 mín.</span>
+    </div>
+  </article>
+</template>
+
+<script src="js/config.js"></script>
+<script src="js/errors.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/state.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/screen1.js"></script>
+<script src="js/screen2.js"></script>
+<script src="js/screen3.js"></script>
+<script src="js/screen4.js"></script>
+<script src="js/analysis.js"></script>
+<script src="js/screen5.js"></script>
+<script src="js/app.js"></script>
+<div id="toasts" class="fixed bottom-4 inset-x-4 sm:inset-x-auto sm:right-4 z-50 grid gap-2 justify-items-end pointer-events-none" aria-live="polite"></div>
+<noscript><p style="padding:2rem;text-align:center">CONAUTI necesita JavaScript activado para funcionar.</p></noscript>
+</body>
+</html>
